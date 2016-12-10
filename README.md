@@ -5,7 +5,7 @@
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![Code Climate][codeclimate-image]][codeclimate-url]
 
-## Generic features that require adapters built with love from (Cali-Style)[https://cali-style.com]
+## Generic features that require adapters built with love from [Cali-Style](https://cali-style.com)
 
 Generics are common features that every web application needs but implements differently.
 For example, Email, Payment Processors, and Fulfillment.
