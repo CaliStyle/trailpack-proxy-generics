@@ -8,7 +8,7 @@
 ## Generic features that require adapters built with love from [Cali-Style](https://cali-style.com)
 
 Generics are common features that every web application needs but implements differently.
-For example, Email, Payment Processors, and Fulfillment.
+For example: Email, Payment Processors, Tax Provider, Shipping Provider, and Fulfillment.
 
 ## Install
 
@@ -27,6 +27,18 @@ module.exports = {
   ]
 }
 ```
+
+## Currently Supported Generics
+### Email (TODO)
+
+### Payment Processor (TODO)
+
+### Tax Provider (TODO)
+
+### Shipping Provider (TODO)
+
+### Fulfillment Provider (TODO)
+
 
 [npm-image]: https://img.shields.io/npm/v/trailpack-proxy-generics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/trailpack-proxy-generics
