@@ -12,6 +12,11 @@
   "keywords": [
     "Proxy Engine",
     "generics",
+    "generic payment",
+    "generic fulfillment",
+    "generic taxes",
+    "generic data store",
+    "generic email",
     "trailpack",
     "trails",
     "trailjs"

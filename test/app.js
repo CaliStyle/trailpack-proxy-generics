@@ -7,16 +7,10 @@ module.exports = _.defaultsDeep({
   pkg: {
     name: require('../package').name + '-test'
   },
-  api: {
-    models: { },
-    controllers: { },
-    services: { }
-  },
+  api: require('../api'),
   config: {
     main: {
       packs: [
-        smokesignals.Trailpack,
-        require('trailpack-core'),
         require('../')
       ]
     }

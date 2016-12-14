@@ -29,7 +29,7 @@ module.exports = {
 ```
 
 ## Currently Supported Generics
-### Email (TODO)
+### Email Provider (TODO)
 
 ### Payment Processor (TODO)
 
@@ -38,6 +38,8 @@ module.exports = {
 ### Shipping Provider (TODO)
 
 ### Fulfillment Provider (TODO)
+
+### Data Store Provider (TODO)
 
 
 [npm-image]: https://img.shields.io/npm/v/trailpack-proxy-generics.svg?style=flat-square

@@ -23,5 +23,9 @@ module.exports = {
   fulfillment_provider: {
     adapter: null,
     options: {}
+  },
+  datastore_provider: {
+    adapter: null,
+    options: {}
   }
 }

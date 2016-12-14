@@ -12,7 +12,8 @@ module.exports = class FulfillmentService extends Service {
    * @private
    */
   _init() {
-    return new this.app.config.proxyGeneric.fulfillment_provider.adapter(this.app.config.proxyGeneric.fulfillment_provider.options)
+    const Adapter = this.app.config.proxyGeneric.fulfillment_provider.adapter
+    return new Adapter(this.app.config.proxyGeneric.fulfillment_provider.options)
   }
 
   /**
@@ -21,7 +22,7 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   createOrders(data){
-    const adapter = this.init()
+    const adapter = this._init()
     return adapter.createOrders(data)
   }
 
@@ -31,7 +32,7 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   updateOrders(data){
-    const adapter = this.init()
+    const adapter = this._init()
     return adapter.updateOrders(data)
   }
 
@@ -41,7 +42,7 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   destroyOrders(data){
-    const adapter = this.init()
+    const adapter = this._init()
     return adapter.destroyOrders(data)
   }
 
@@ -51,7 +52,7 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   getOrders(data){
-    const adapter = this.init()
+    const adapter = this._init()
     return adapter.getOrders(data)
   }
 
@@ -61,7 +62,7 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   holdOrders(data){
-    const adapter = this.init()
+    const adapter = this._init()
     return adapter.holdOrders(data)
   }
 

@@ -12,7 +12,8 @@ module.exports = class ShippingService extends Service {
    * @private
    */
   _init() {
-    return new this.app.config.proxyGeneric.shipping_provider.adapter(this.app.config.proxyGeneric.shipping_provider.options)
+    const Adapter = this.app.config.proxyGeneric.shipping_provider.adapter
+    return new Adapter(this.app.config.proxyGeneric.shipping_provider.options)
   }
 
   /**
@@ -21,7 +22,7 @@ module.exports = class ShippingService extends Service {
    * @returns {Promise}
    */
   getRate(data){
-    const adapter = this.init()
+    const adapter = this._init()
     return adapter.getRate(data)
   }
 
