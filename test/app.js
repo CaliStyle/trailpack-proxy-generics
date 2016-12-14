@@ -13,7 +13,8 @@ module.exports = _.defaultsDeep({
       packs: [
         require('../')
       ]
-    }
+    },
+    proxyGenerics: {}
   }
 }, smokesignals.FailsafeConfig)
 

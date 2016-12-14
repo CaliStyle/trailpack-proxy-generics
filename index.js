@@ -1,14 +1,22 @@
 'use strict'
 
 const Trailpack = require('trailpack')
+// const _ = require('lodash')
+const lib = require('./lib')
 
 module.exports = class ProxyGenericsTrailpack extends Trailpack {
 
   /**
-   * TODO document method
+   * Validates Configs
    */
-  validate () {
+  validate (app) {
+    if (!this.app.config.proxyGenerics) {
+      return Promise.reject(new Error('No configuration found at config.proxyGenerics!'))
+    }
 
+    return Promise.all([
+      lib.Validator.validateProxyGenericsConfig(this.app.config.proxyGenerics)
+    ])
   }
 
   /**
