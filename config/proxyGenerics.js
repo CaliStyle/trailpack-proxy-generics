@@ -24,7 +24,7 @@ module.exports = {
     adapter: null,
     options: {}
   },
-  datastore_provider: {
+  data_store_provider: {
     adapter: null,
     options: {}
   }

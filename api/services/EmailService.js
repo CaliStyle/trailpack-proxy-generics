@@ -1,6 +1,7 @@
 'use strict'
 
 const Service = require('trails/service')
+// const lib = require('../../lib')
 
 /**
  * @module EmailService
@@ -24,6 +25,15 @@ module.exports = class EmailService extends Service {
   send(data){
     const adapter = this._init()
     return adapter.send(data)
+  }
+  /**
+   *
+   * @param data
+   * @returns {Promise}
+   */
+  sendTemplate(data){
+    const adapter = this._init()
+    return adapter.sendTemplate(data)
   }
 }
 
