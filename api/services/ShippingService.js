@@ -22,7 +22,7 @@ module.exports = class ShippingService extends Service {
    * @param data
    * @returns {Promise}
    */
-  getRate(data){
+  getRates(data){
     const adapter = this._init()
     return adapter.getRate(data)
   }

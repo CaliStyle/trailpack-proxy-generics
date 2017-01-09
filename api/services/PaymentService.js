@@ -21,6 +21,7 @@ module.exports = class PaymentService extends Service {
    * @param data
    * @returns {Promise}
    */
+  // authorization is the reserving of money that the customer has agreed to pay.
   authorize(data){
     const adapter = this._init()
     return adapter.authorize(data)
@@ -30,6 +31,7 @@ module.exports = class PaymentService extends Service {
    * @param data
    * @returns {Promise}
    */
+  // capture is the transfer of the money that was reserved during the authorization stage.
   capture(data){
     const adapter = this._init()
     return adapter.capture(data)
@@ -40,9 +42,30 @@ module.exports = class PaymentService extends Service {
    * @param data
    * @returns {Promise}
    */
-  authorizeAndCapture(data){
+  // sale is a combination of authorization and capture, performed in one step.
+  sale(data){
     const adapter = this._init()
-    return adapter.authorizeAndCapture(data)
+    return adapter.sale(data)
+  }
+  /**
+   *
+   * @param data
+   * @returns {Promise}
+   */
+  // void is the cancellation of a pending authorization or capture.
+  void(data){
+    const adapter = this._init()
+    return adapter.void(data)
+  }
+  /**
+   *
+   * @param data
+   * @returns {Promise}
+   */
+  // refund is the partial or full refund of the captured money to the customer.
+  refund(data){
+    const adapter = this._init()
+    return adapter.refund(data)
   }
 }
 
