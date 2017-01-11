@@ -2,8 +2,8 @@
 /* global describe, it */
 const assert = require('assert')
 
-describe('EmailService', () => {
+describe('EmailGenericService', () => {
   it('should exist', () => {
-    assert(global.app.api.services['EmailService'])
+    assert(global.app.api.services['EmailGenericService'])
   })
 })
