@@ -1,7 +1,7 @@
 'use strict'
 
 const Service = require('trails/service')
-// const lib = require('../../lib')
+const lib = require('../../lib')
 /**
  * @module PaymentService
  * @description Payment Processor Generic
@@ -23,8 +23,11 @@ module.exports = class PaymentService extends Service {
    */
   // authorization is the reserving of money that the customer has agreed to pay.
   authorize(data){
-    const adapter = this._init()
-    return adapter.authorize(data)
+    return lib.Validator.paymentProvider.authorize(data)
+      .then(values => {
+        const adapter = this._init()
+        return adapter.authorize(data)
+      })
   }
   /**
    *
@@ -33,8 +36,11 @@ module.exports = class PaymentService extends Service {
    */
   // capture is the transfer of the money that was reserved during the authorization stage.
   capture(data){
-    const adapter = this._init()
-    return adapter.capture(data)
+    return lib.Validator.paymentProvider.capture(data)
+      .then(values => {
+        const adapter = this._init()
+        return adapter.capture(data)
+      })
   }
 
   /**
@@ -44,8 +50,11 @@ module.exports = class PaymentService extends Service {
    */
   // sale is a combination of authorization and capture, performed in one step.
   sale(data){
-    const adapter = this._init()
-    return adapter.sale(data)
+    return lib.Validator.paymentProvider.sale(data)
+      .then(values => {
+        const adapter = this._init()
+        return adapter.sale(data)
+      })
   }
   /**
    *
@@ -54,18 +63,24 @@ module.exports = class PaymentService extends Service {
    */
   // void is the cancellation of a pending authorization or capture.
   void(data){
-    const adapter = this._init()
-    return adapter.void(data)
+    return lib.Validator.paymentProvider.void(data)
+      .then(values => {
+        const adapter = this._init()
+        return adapter.void(data)
+      })
   }
   /**
    *
    * @param data
    * @returns {Promise}
    */
-  // refund is the partial or full refund of the captured money to the customer.
+  // refund is the partial or full refund of the captured money to the sale.
   refund(data){
-    const adapter = this._init()
-    return adapter.refund(data)
+    return lib.Validator.paymentProvider.refund(data)
+      .then(values => {
+        const adapter = this._init()
+        return adapter.refund(data)
+      })
   }
 }
 
