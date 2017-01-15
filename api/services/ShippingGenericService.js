@@ -12,18 +12,19 @@ module.exports = class ShippingService extends Service {
    * _init Initializes the Adapter
    * @private
    */
-  _init() {
-    const Adapter = this.app.config.proxyGeneric.shipping_provider.adapter
-    return new Adapter(this.app.config.proxyGeneric.shipping_provider.options)
+  _init(adapter) {
+    const Adapter = adapter.adapter || this.app.config.proxyGeneric.shipping_provider.adapter
+    return new Adapter(adapter.options || this.app.config.proxyGeneric.shipping_provider.options)
   }
 
   /**
    *
    * @param data
+   * @param adapter
    * @returns {Promise}
    */
-  getRates(data){
-    const adapter = this._init()
+  getRates(data, adapter){
+    adapter = this._init(adapter)
     return adapter.getRate(data)
   }
 

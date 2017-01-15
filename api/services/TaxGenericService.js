@@ -12,9 +12,9 @@ module.exports = class TaxService extends Service {
    * _init Initializes the Adapter
    * @private
    */
-  _init() {
-    const Adapter = this.app.config.proxyGeneric.tax_provider.adapter
-    return new Adapter(this.app.config.proxyGeneric.tax_provider.options)
+  _init(adapter) {
+    const Adapter = adapter.adapter || this.app.config.proxyGeneric.tax_provider.adapter
+    return new Adapter(adapter.options || this.app.config.proxyGeneric.tax_provider.options)
   }
 
   /**
@@ -22,9 +22,8 @@ module.exports = class TaxService extends Service {
    * @param data
    * @returns {Promise}
    */
-  getRate(data){
-    const adapter = this._init()
+  getRate(data, adapter){
+    adapter = this._init(adapter)
     return adapter.getRate(data)
   }
 }
-

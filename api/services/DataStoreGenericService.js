@@ -11,18 +11,19 @@ module.exports = class DataStoreService extends Service {
    * _init Initializes the Adapter
    * @private
    */
-  _init() {
-    const Adapter = this.app.config.proxyGeneric.data_store_provider.adapter
-    return new Adapter(this.app.config.proxyGeneric.data_store_provider.options)
+  _init(adapter) {
+    const Adapter = adapter.adapter || this.app.config.proxyGeneric.data_store_provider.adapter
+    return new Adapter(adapter.options || this.app.config.proxyGeneric.data_store_provider.options)
   }
 
   /**
    *
    * @param files
+   * @param adapter
    * @returns {Promise}
    */
-  upload(files) {
-    const adapter = this._init()
+  upload(files, adapter) {
+    adapter = this._init(adapter)
     return adapter.upload(files)
   }
 }

@@ -12,27 +12,29 @@ module.exports = class EmailService extends Service {
    * _init Initializes the Adapter
    * @private
    */
-  _init() {
-    const Adapter = this.app.config.proxyGeneric.email_provider.adapter
-    return new Adapter(this.app.config.proxyGeneric.email_provider.options)
+  _init(adapter) {
+    const Adapter = adapter.adapter || this.app.config.proxyGeneric.email_provider.adapter
+    return new Adapter(adapter.options || this.app.config.proxyGeneric.email_provider.options)
   }
 
   /**
    *
    * @param data
+   * @param adapter
    * @returns {Promise}
    */
-  send(data){
-    const adapter = this._init()
+  send(data, adapter){
+    adapter = this._init(adapter)
     return adapter.send(data)
   }
   /**
    *
    * @param data
+   * @param adapter
    * @returns {Promise}
    */
-  sendTemplate(data){
-    const adapter = this._init()
+  sendTemplate(data, adapter){
+    adapter = this._init(adapter)
     return adapter.sendTemplate(data)
   }
 }

@@ -12,58 +12,63 @@ module.exports = class FulfillmentService extends Service {
    * _init Initializes the Adapter
    * @private
    */
-  _init() {
-    const Adapter = this.app.config.proxyGeneric.fulfillment_provider.adapter
-    return new Adapter(this.app.config.proxyGeneric.fulfillment_provider.options)
+  _init(adapter) {
+    const Adapter = adapter.adapter || this.app.config.proxyGeneric.fulfillment_provider.adapter
+    return new Adapter(adapter.options || this.app.config.proxyGeneric.fulfillment_provider.options)
   }
 
   /**
    *
    * @param data
+   * @param adapter
    * @returns {Promise}
    */
-  createOrders(data){
-    const adapter = this._init()
+  createOrders(data, adapter){
+    adapter = this._init(adapter)
     return adapter.createOrders(data)
   }
 
   /**
    *
    * @param data
+   * @param adapter
    * @returns {Promise}
    */
-  updateOrders(data){
-    const adapter = this._init()
+  updateOrders(data, adapter){
+    adapter = this._init(adapter)
     return adapter.updateOrders(data)
   }
 
   /**
    *
    * @param data
+   * @param adapter
    * @returns {Promise}
    */
-  destroyOrders(data){
-    const adapter = this._init()
+  destroyOrders(data, adapter){
+    adapter = this._init(adapter)
     return adapter.destroyOrders(data)
   }
 
   /**
    *
    * @param data
+   * @param adapter
    * @returns {Promise}
    */
-  getOrders(data){
-    const adapter = this._init()
+  getOrders(data, adapter){
+    adapter = this._init(adapter)
     return adapter.getOrders(data)
   }
 
   /**
    *
    * @param data
+   * @param adapter
    * @returns {Promise}
    */
-  holdOrders(data){
-    const adapter = this._init()
+  holdOrders(data, adapter){
+    adapter = this._init(adapter)
     return adapter.holdOrders(data)
   }
 
