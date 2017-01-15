@@ -18,73 +18,73 @@ module.exports = class PaymentService extends Service {
 
   /**
    *
-   * @param data
+   * @param transaction
    * @param adapter
    * @returns {Promise}
    */
   // authorization is the reserving of money that the customer has agreed to pay.
-  authorize(data, adapter){
-    return lib.Validator.paymentProvider.authorize(data)
+  authorize(transaction, adapter){
+    return lib.Validator.paymentProvider.authorize(transaction)
       .then(values => {
         adapter = this._init(adapter)
-        return adapter.authorize(data)
+        return adapter.authorize(transaction)
       })
   }
   /**
    *
-   * @param data
+   * @param transaction
    * @param adapter
    * @returns {Promise}
    */
   // capture is the transfer of the money that was reserved during the authorization stage.
-  capture(data, adapter){
-    return lib.Validator.paymentProvider.capture(data)
+  capture(transaction, adapter){
+    return lib.Validator.paymentProvider.capture(transaction)
       .then(values => {
         adapter = this._init(adapter)
-        return adapter.capture(data)
+        return adapter.capture(transaction)
       })
   }
 
   /**
    *
-   * @param data
+   * @param transaction
    * @param adapter
    * @returns {Promise}
    */
   // sale is a combination of authorization and capture, performed in one step.
-  sale(data, adapter){
-    return lib.Validator.paymentProvider.sale(data)
+  sale(transaction, adapter){
+    return lib.Validator.paymentProvider.sale(transaction)
       .then(values => {
         adapter = this._init(adapter)
-        return adapter.sale(data)
+        return adapter.sale(transaction)
       })
   }
   /**
    *
-   * @param data
+   * @param transaction
    * @param adapter
    * @returns {Promise}
    */
   // void is the cancellation of a pending authorization or capture.
-  void(data, adapter){
-    return lib.Validator.paymentProvider.void(data)
+  void(transaction, adapter){
+    return lib.Validator.paymentProvider.void(transaction)
       .then(values => {
         adapter = this._init(adapter)
-        return adapter.void(data)
+        return adapter.void(transaction)
       })
   }
   /**
    *
-   * @param data
+   * @param transaction
    * @param adapter
    * @returns {Promise}
    */
   // refund is the partial or full refund of the captured money to the sale.
-  refund(data, adapter){
-    return lib.Validator.paymentProvider.refund(data)
+  refund(transaction, adapter){
+    return lib.Validator.paymentProvider.refund(transaction)
       .then(values => {
         adapter = this._init(adapter)
-        return adapter.refund(data)
+        return adapter.refund(transaction)
       })
   }
 }
