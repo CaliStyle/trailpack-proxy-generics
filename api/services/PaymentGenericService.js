@@ -17,28 +17,27 @@ module.exports = class PaymentService extends Service {
   }
 
   /**
-   *
+   * authorization is the reserving of money that the customer has agreed to pay.
    * @param transaction
    * @param adapter
    * @returns {Promise}
    */
-  // authorization is the reserving of money that the customer has agreed to pay.
   authorize(transaction, adapter){
-    return lib.Validator.paymentProvider.authorize(transaction)
+    return lib.Validator.validatePaymentProvider.authorize(transaction)
       .then(values => {
         adapter = this._init(adapter)
         return adapter.authorize(transaction)
       })
   }
+
   /**
-   *
+   * capture is the transfer of the money that was reserved during the authorization stage.
    * @param transaction
    * @param adapter
    * @returns {Promise}
    */
-  // capture is the transfer of the money that was reserved during the authorization stage.
   capture(transaction, adapter){
-    return lib.Validator.paymentProvider.capture(transaction)
+    return lib.Validator.validatePaymentProvider.capture(transaction)
       .then(values => {
         adapter = this._init(adapter)
         return adapter.capture(transaction)
@@ -46,42 +45,39 @@ module.exports = class PaymentService extends Service {
   }
 
   /**
-   *
+   * sale is a combination of authorization and capture, performed in one step.
    * @param transaction
    * @param adapter
    * @returns {Promise}
    */
-  // sale is a combination of authorization and capture, performed in one step.
   sale(transaction, adapter){
-    return lib.Validator.paymentProvider.sale(transaction)
+    return lib.Validator.validatePaymentProvider.sale(transaction)
       .then(values => {
         adapter = this._init(adapter)
         return adapter.sale(transaction)
       })
   }
   /**
-   *
+   * void is the cancellation of a pending authorization or capture.
    * @param transaction
    * @param adapter
    * @returns {Promise}
    */
-  // void is the cancellation of a pending authorization or capture.
   void(transaction, adapter){
-    return lib.Validator.paymentProvider.void(transaction)
+    return lib.Validator.validatePaymentProvider.void(transaction)
       .then(values => {
         adapter = this._init(adapter)
         return adapter.void(transaction)
       })
   }
   /**
-   *
+   * refund is the partial or full refund of the captured money to the sale.
    * @param transaction
    * @param adapter
    * @returns {Promise}
    */
-  // refund is the partial or full refund of the captured money to the sale.
   refund(transaction, adapter){
-    return lib.Validator.paymentProvider.refund(transaction)
+    return lib.Validator.validatePaymentProvider.refund(transaction)
       .then(values => {
         adapter = this._init(adapter)
         return adapter.refund(transaction)
