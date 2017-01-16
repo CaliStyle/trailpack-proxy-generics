@@ -12,8 +12,8 @@ module.exports = class PaymentService extends Service {
    * @private
    */
   _init(adapter) {
-    const Adapter = adapter.adapter || this.app.config.proxyGeneric.payment_processor.adapter
-    return new Adapter(adapter.options || this.app.config.proxyGeneric.payment_processor.options)
+    const Adapter = adapter ? adapter.adapter : this.app.config.proxyGenerics.payment_processor.adapter
+    return new Adapter(adapter ? adapter.adapter : this.app.config.proxyGenerics.payment_processor.options)
   }
 
   /**

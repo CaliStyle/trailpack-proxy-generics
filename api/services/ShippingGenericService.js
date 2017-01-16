@@ -13,8 +13,8 @@ module.exports = class ShippingService extends Service {
    * @private
    */
   _init(adapter) {
-    const Adapter = adapter.adapter || this.app.config.proxyGeneric.shipping_provider.adapter
-    return new Adapter(adapter.options || this.app.config.proxyGeneric.shipping_provider.options)
+    const Adapter = adapter ? adapter.adapter : this.app.config.proxyGenerics.shipping_provider.adapter
+    return new Adapter(adapter ? adapter.adapter : this.app.config.proxyGenerics.shipping_provider.options)
   }
 
   /**

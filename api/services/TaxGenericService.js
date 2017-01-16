@@ -13,8 +13,8 @@ module.exports = class TaxService extends Service {
    * @private
    */
   _init(adapter) {
-    const Adapter = adapter.adapter || this.app.config.proxyGeneric.tax_provider.adapter
-    return new Adapter(adapter.options || this.app.config.proxyGeneric.tax_provider.options)
+    const Adapter = adapter ? adapter.adapter : this.app.config.proxyGenerics.tax_provider.adapter
+    return new Adapter(adapter ? adapter.adapter : this.app.config.proxyGenerics.tax_provider.options)
   }
 
   /**

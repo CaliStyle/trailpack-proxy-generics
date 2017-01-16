@@ -13,8 +13,8 @@ module.exports = class EmailService extends Service {
    * @private
    */
   _init(adapter) {
-    const Adapter = adapter.adapter || this.app.config.proxyGeneric.email_provider.adapter
-    return new Adapter(adapter.options || this.app.config.proxyGeneric.email_provider.options)
+    const Adapter = adapter ? adapter.adapter : this.app.config.proxyGenerics.email_provider.adapter
+    return new Adapter(adapter ? adapter.adapter : this.app.config.proxyGenerics.email_provider.options)
   }
 
   /**

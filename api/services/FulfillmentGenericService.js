@@ -13,8 +13,8 @@ module.exports = class FulfillmentService extends Service {
    * @private
    */
   _init(adapter) {
-    const Adapter = adapter.adapter || this.app.config.proxyGeneric.fulfillment_provider.adapter
-    return new Adapter(adapter.options || this.app.config.proxyGeneric.fulfillment_provider.options)
+    const Adapter = adapter ? adapter.adapter : this.app.config.proxyGenerics.fulfillment_provider.adapter
+    return new Adapter(adapter ? adapter.adapter : this.app.config.proxyGenerics.fulfillment_provider.options)
   }
 
   /**

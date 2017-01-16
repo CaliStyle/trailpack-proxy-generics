@@ -12,8 +12,8 @@ module.exports = class DataStoreService extends Service {
    * @private
    */
   _init(adapter) {
-    const Adapter = adapter.adapter || this.app.config.proxyGeneric.data_store_provider.adapter
-    return new Adapter(adapter.options || this.app.config.proxyGeneric.data_store_provider.options)
+    const Adapter = adapter ? adapter.adapter : this.app.config.proxyGenerics.data_store_provider.adapter
+    return new Adapter(adapter ? adapter.options : this.app.config.proxyGenerics.data_store_provider.options)
   }
 
   /**
