@@ -22,9 +22,31 @@ module.exports = class DataStoreService extends Service {
    * @param adapter
    * @returns {Promise}
    */
-  upload(files, adapter) {
+  upload(buffer, adapter) {
     adapter = this._init(adapter)
-    return adapter.upload(files)
+    return adapter.upload(buffer)
+  }
+
+  /**
+   *
+   * @param file
+   * @param adapter
+   * @returns {*}
+   */
+  uploadFile(file, adapter) {
+    adapter = this._init(adapter)
+    return adapter.uploadFile(file)
+  }
+
+  /**
+   *
+   * @param files
+   * @param adapter
+   * @returns {*}
+   */
+  uploadFiles(files, adapter) {
+    adapter = this._init(adapter)
+    return adapter.uploadFiles(files)
   }
 }
 
