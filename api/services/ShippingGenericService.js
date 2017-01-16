@@ -23,9 +23,19 @@ module.exports = class ShippingService extends Service {
    * @param adapter
    * @returns {Promise}
    */
-  getRates(data, adapter){
+  getRate(data, adapter){
     adapter = this._init(adapter)
     return adapter.getRate(data)
+  }
+  /**
+   *
+   * @param data
+   * @param adapter
+   * @returns {Promise}
+   */
+  getRates(data, adapter){
+    adapter = this._init(adapter)
+    return adapter.getRates(data)
   }
 
 }

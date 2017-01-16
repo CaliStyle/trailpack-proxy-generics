@@ -56,7 +56,7 @@ describe('PaymentGenericService', () => {
         done(err)
       })
   })
-  it('should authorize', (done) => {
+  it('should refund', (done) => {
     PaymentGenericService.refund({
       payment_details: []
     })

@@ -4,4 +4,7 @@ module.exports = class FakeTaxProvider {
   constructor(options) {
     this.options = options
   }
+  getRate(data) {
+    return Promise.resolve({})
+  }
 }

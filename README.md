@@ -38,6 +38,7 @@ The Email Provider handles sending emails from different email providers eg. Man
 
 ### Payment Processor (TODO)
 The Payment Processor handles payments from different merchant processors/terminals eg. Stripe, Authorize.net.
+
 #### PaymentGenericService.authorize
 #### PaymentGenericService.capture
 #### PaymentGenericService.sale
@@ -47,11 +48,14 @@ The Payment Processor handles payments from different merchant processors/termin
 
 ### Tax Provider (TODO)
 The Tax Provider handles sales tax for items sold from different tax providers eg. TaxBundle
+
 #### TaxGenericService.getRate
 #### Creating a Tax Provider Plugin
 
 ### Shipping Provider (TODO)
 The Shipping Provider handles shipping rates from a location to a destination from different shipping providers eg. Shipstation, USPS, FedEx, UPS
+
+#### ShippingGenericService.getRate
 #### ShippingGenericService.getRates
 #### Creating a Shipping Provider Plugin
 
