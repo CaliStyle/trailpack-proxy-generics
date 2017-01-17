@@ -23,9 +23,30 @@ module.exports = class FulfillmentService extends Service {
    * @param adapter
    * @returns {Promise}
    */
+  createOrder(data, adapter){
+    adapter = this._init(adapter)
+    return adapter.createOrder(data)
+  }
+  /**
+   *
+   * @param data
+   * @param adapter
+   * @returns {Promise}
+   */
   createOrders(data, adapter){
     adapter = this._init(adapter)
     return adapter.createOrders(data)
+  }
+
+  /**
+   *
+   * @param data
+   * @param adapter
+   * @returns {Promise}
+   */
+  updateOrder(data, adapter){
+    adapter = this._init(adapter)
+    return adapter.updateOrder(data)
   }
 
   /**
@@ -45,6 +66,17 @@ module.exports = class FulfillmentService extends Service {
    * @param adapter
    * @returns {Promise}
    */
+  destroyOrder(data, adapter){
+    adapter = this._init(adapter)
+    return adapter.destroyOrder(data)
+  }
+
+  /**
+   *
+   * @param data
+   * @param adapter
+   * @returns {Promise}
+   */
   destroyOrders(data, adapter){
     adapter = this._init(adapter)
     return adapter.destroyOrders(data)
@@ -56,9 +88,31 @@ module.exports = class FulfillmentService extends Service {
    * @param adapter
    * @returns {Promise}
    */
+  getOrder(data, adapter){
+    adapter = this._init(adapter)
+    return adapter.getOrder(data)
+  }
+
+  /**
+   *
+   * @param data
+   * @param adapter
+   * @returns {Promise}
+   */
   getOrders(data, adapter){
     adapter = this._init(adapter)
     return adapter.getOrders(data)
+  }
+
+  /**
+   *
+   * @param data
+   * @param adapter
+   * @returns {Promise}
+   */
+  holdOrder(data, adapter){
+    adapter = this._init(adapter)
+    return adapter.holdOrder(data)
   }
 
   /**
