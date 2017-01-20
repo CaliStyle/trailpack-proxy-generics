@@ -23,6 +23,17 @@ module.exports = class ShippingService extends Service {
    * @param adapter
    * @returns {Promise}
    */
+  validateAddress(data, adapter){
+    adapter = this._init(adapter)
+    return adapter.validateAddress(data)
+  }
+
+  /**
+   *
+   * @param data
+   * @param adapter
+   * @returns {Promise}
+   */
   getRate(data, adapter){
     adapter = this._init(adapter)
     return adapter.getRate(data)
