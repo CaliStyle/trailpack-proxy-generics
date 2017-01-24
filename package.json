@@ -1,6 +1,6 @@
 {
   "name": "trailpack-proxy-generics",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Generics - Trailpack for Proxy Engine",
   "homepage": "https://cali-style.com",
   "author": {
@@ -22,6 +22,7 @@
     "trailjs"
   ],
   "dependencies": {
+    "joi": "^9.0.4",
     "proxy-engine-errors": "^1.0.1",
     "trailpack": "v2-latest"
   },
