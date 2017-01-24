@@ -10,17 +10,18 @@ const Service = require('trails/service')
 module.exports = class ShippingService extends Service {
   /**
    * _init Initializes the Adapter
+   * @param {Object} adapter
    * @private
    */
   _init(adapter) {
     const Adapter = adapter ? adapter.adapter : this.app.config.proxyGenerics.shipping_provider.adapter
-    return new Adapter(adapter ? adapter.adapter : this.app.config.proxyGenerics.shipping_provider.options)
+    return new Adapter(adapter ? adapter.options : this.app.config.proxyGenerics.shipping_provider.options)
   }
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   validateAddress(data, adapter){
@@ -30,8 +31,8 @@ module.exports = class ShippingService extends Service {
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   getRate(data, adapter){
@@ -40,8 +41,8 @@ module.exports = class ShippingService extends Service {
   }
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   getRates(data, adapter){

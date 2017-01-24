@@ -9,6 +9,7 @@ const Service = require('trails/service')
 module.exports = class DataStoreService extends Service {
   /**
    * _init Initializes the Adapter
+   * @param {Object} adapter
    * @private
    */
   _init(adapter) {

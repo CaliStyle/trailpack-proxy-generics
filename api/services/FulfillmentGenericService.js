@@ -10,17 +10,18 @@ const Service = require('trails/service')
 module.exports = class FulfillmentService extends Service {
   /**
    * _init Initializes the Adapter
+   * @param {Object} adapter
    * @private
    */
   _init(adapter) {
     const Adapter = adapter ? adapter.adapter : this.app.config.proxyGenerics.fulfillment_provider.adapter
-    return new Adapter(adapter ? adapter.adapter : this.app.config.proxyGenerics.fulfillment_provider.options)
+    return new Adapter(adapter ? adapter.options : this.app.config.proxyGenerics.fulfillment_provider.options)
   }
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   createOrder(data, adapter){
@@ -29,8 +30,8 @@ module.exports = class FulfillmentService extends Service {
   }
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   createOrders(data, adapter){
@@ -40,8 +41,8 @@ module.exports = class FulfillmentService extends Service {
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   updateOrder(data, adapter){
@@ -51,8 +52,8 @@ module.exports = class FulfillmentService extends Service {
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   updateOrders(data, adapter){
@@ -62,8 +63,8 @@ module.exports = class FulfillmentService extends Service {
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   destroyOrder(data, adapter){
@@ -73,8 +74,8 @@ module.exports = class FulfillmentService extends Service {
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   destroyOrders(data, adapter){
@@ -84,8 +85,8 @@ module.exports = class FulfillmentService extends Service {
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   getOrder(data, adapter){
@@ -95,8 +96,8 @@ module.exports = class FulfillmentService extends Service {
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   getOrders(data, adapter){
@@ -106,8 +107,8 @@ module.exports = class FulfillmentService extends Service {
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   holdOrder(data, adapter){
@@ -117,8 +118,8 @@ module.exports = class FulfillmentService extends Service {
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   holdOrders(data, adapter){

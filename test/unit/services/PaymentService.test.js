@@ -10,7 +10,10 @@ describe('PaymentGenericService', () => {
   })
   it('should authorize', (done) => {
     PaymentGenericService.authorize({
-      payment_details: []
+      amount: 100,
+      payment_details: {
+        token: '123'
+      }
     })
       .then(transaction => {
 
@@ -22,7 +25,7 @@ describe('PaymentGenericService', () => {
   })
   it('should capture', (done) => {
     PaymentGenericService.capture({
-      payment_details: []
+      authorization: '123'
     })
       .then(transaction => {
 
@@ -34,7 +37,10 @@ describe('PaymentGenericService', () => {
   })
   it('should sale', (done) => {
     PaymentGenericService.sale({
-      payment_details: []
+      amount: 100,
+      payment_details: {
+        token: '123'
+      }
     })
       .then(transaction => {
 
@@ -46,7 +52,7 @@ describe('PaymentGenericService', () => {
   })
   it('should void', (done) => {
     PaymentGenericService.void({
-      payment_details: []
+      authorization: '123'
     })
       .then(transaction => {
 
@@ -58,7 +64,7 @@ describe('PaymentGenericService', () => {
   })
   it('should refund', (done) => {
     PaymentGenericService.refund({
-      payment_details: []
+      authorization: '123'
     })
       .then(transaction => {
 

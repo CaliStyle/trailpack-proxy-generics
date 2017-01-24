@@ -10,17 +10,18 @@ const Service = require('trails/service')
 module.exports = class EmailService extends Service {
   /**
    * _init Initializes the Adapter
+   * @param {Object} adapter
    * @private
    */
   _init(adapter) {
     const Adapter = adapter ? adapter.adapter : this.app.config.proxyGenerics.email_provider.adapter
-    return new Adapter(adapter ? adapter.adapter : this.app.config.proxyGenerics.email_provider.options)
+    return new Adapter(adapter ? adapter.options : this.app.config.proxyGenerics.email_provider.options)
   }
 
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   send(data, adapter){
@@ -29,8 +30,8 @@ module.exports = class EmailService extends Service {
   }
   /**
    *
-   * @param data
-   * @param adapter
+   * @param {Object} data
+   * @param {Object} adapter
    * @returns {Promise}
    */
   sendTemplate(data, adapter){
