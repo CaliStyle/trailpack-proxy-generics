@@ -59,6 +59,9 @@ The Tax Provider handles sales tax for items sold from different tax providers e
 
 #### Creating a Tax Provider Generic
 
+#### Supported Tax Providers
+* [Taxjar](https://github.com/CaliStyle/proxy-generics-taxjar)
+
 ### Shipping Provider (TODO)
 The Shipping Provider handles shipping rates from a location to a destination from different shipping providers eg. Shipstation, USPS, FedEx, UPS
 
@@ -67,6 +70,12 @@ The Shipping Provider handles shipping rates from a location to a destination fr
 #### ShippingGenericService.getRates
 
 #### Creating a Shipping Provider Generic
+
+#### Supported Shipping Providers
+* [Shippo](https://github.com/CaliStyle/proxy-generics-shippo)
+* [Shipstation](https://github.com/CaliStyle/proxy-generics-shipstation)
+
+
 
 ### Fulfillment Provider (TODO)
 The Fulfillment Provider handles fulfillment events from a location to a destination from different fulfillment providers eg. Shipstation
@@ -82,6 +91,10 @@ The Fulfillment Provider handles fulfillment events from a location to a destina
 #### FulfillmentGenericService.holdOrders
 
 #### Creating a Fulfillment Provider Generic
+
+#### Supported Fulfillment Providers
+* [Shippo](https://github.com/CaliStyle/proxy-generics-shippo)
+* [Shipstation](https://github.com/CaliStyle/proxy-generics-shipstation)
 
 ### Data Store Provider (TODO)
 The Data Store provider handles uploads and downloads to a remote data store eg. AWS, Gcloud
