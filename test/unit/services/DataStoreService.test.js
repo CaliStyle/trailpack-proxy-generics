@@ -9,7 +9,7 @@ describe('DataStoreGenericService', () => {
     DataStoreGenericService = global.app.services.DataStoreGenericService
   })
   it('should upload a buffer', (done) => {
-    DataStoreGenericService.upload('')
+    DataStoreGenericService.upload('buffer')
       .then(image => {
         assert.equal(image.status, 'success')
         assert.ok(image.url)

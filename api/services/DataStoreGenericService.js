@@ -1,7 +1,7 @@
 'use strict'
 
 const Service = require('trails/service')
-// const lib = require('../../lib')
+const lib = require('../../lib')
 /**
  * @module DataStoreService
  * @description Data Store Generic
@@ -24,8 +24,15 @@ module.exports = class DataStoreService extends Service {
    * @returns {Promise}
    */
   upload(buffer, adapter) {
-    adapter = this._init(adapter)
-    return adapter.upload(buffer)
+
+    return lib.Validator.validateDataStoreProvider.upload(buffer)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.upload(buffer)
+          .then(response => {
+            return lib.Validator.validateDataStoreProvider.uploadSuccess(response)
+          })
+      })
   }
 
   /**
@@ -35,8 +42,15 @@ module.exports = class DataStoreService extends Service {
    * @returns {*}
    */
   uploadFile(file, adapter) {
-    adapter = this._init(adapter)
-    return adapter.uploadFile(file)
+
+    return lib.Validator.validateDataStoreProvider.uploadFile(file)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.uploadFile(file)
+          .then(response => {
+            return lib.Validator.validateDataStoreProvider.uploadFileSuccess(response)
+          })
+      })
   }
 
   /**
@@ -46,8 +60,14 @@ module.exports = class DataStoreService extends Service {
    * @returns {*}
    */
   uploadFiles(files, adapter) {
-    adapter = this._init(adapter)
-    return adapter.uploadFiles(files)
+    return lib.Validator.validateDataStoreProvider.uploadFiles(files)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.uploadFiles(files)
+          .then(responses => {
+            return lib.Validator.validateDataStoreProvider.uploadFilesSuccess(responses)
+          })
+      })
   }
 }
 

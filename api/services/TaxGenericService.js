@@ -1,7 +1,7 @@
 'use strict'
 
 const Service = require('trails/service')
-// const lib = require('../../lib')
+const lib = require('../../lib')
 
 /**
  * @module TaxService
@@ -25,7 +25,13 @@ module.exports = class TaxService extends Service {
    * @returns {Promise}
    */
   getRate(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.getRate(data)
+    return lib.Validator.validateTaxProvider.getRate(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.getRate(data)
+          .then(rate => {
+            return lib.Validator.validateTaxProvider.getRateSuccess(rate)
+          })
+      })
   }
 }

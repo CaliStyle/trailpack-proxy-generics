@@ -1,7 +1,7 @@
 'use strict'
 
 const Service = require('trails/service')
-// const lib = require('../../lib')
+const lib = require('../../lib')
 
 /**
  * @module FulfillmentService
@@ -25,8 +25,14 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   createOrder(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.createOrder(data)
+    return lib.Validator.validateFulfillmentProvider.createOrder(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.createOrder(data)
+          .then(order => {
+            return lib.Validator.validateFulfillmentProvider.createOrderSuccess(order)
+          })
+      })
   }
   /**
    *
@@ -35,8 +41,14 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   createOrders(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.createOrders(data)
+    return lib.Validator.validateFulfillmentProvider.createOrders(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.createOrders(data)
+          .then(orders => {
+            return lib.Validator.validateFulfillmentProvider.createOrdersSuccess(orders)
+          })
+      })
   }
 
   /**
@@ -46,8 +58,14 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   updateOrder(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.updateOrder(data)
+    return lib.Validator.validateFulfillmentProvider.updateOrder(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.updateOrder(data)
+          .then(order => {
+            return lib.Validator.validateFulfillmentProvider.updateOrderSuccess(order)
+          })
+      })
   }
 
   /**
@@ -57,8 +75,14 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   updateOrders(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.updateOrders(data)
+    return lib.Validator.validateFulfillmentProvider.updateOrders(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.updateOrders(data)
+          .then(orders => {
+            return lib.Validator.validateFulfillmentProvider.updateOrdersSuccess(orders)
+          })
+      })
   }
 
   /**
@@ -68,8 +92,14 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   destroyOrder(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.destroyOrder(data)
+    return lib.Validator.validateFulfillmentProvider.destroyOrder(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.destroyOrder(data)
+          .then(order => {
+            return lib.Validator.validateFulfillmentProvider.destroyOrderSuccess(order)
+          })
+      })
   }
 
   /**
@@ -79,8 +109,14 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   destroyOrders(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.destroyOrders(data)
+    return lib.Validator.validateFulfillmentProvider.destroyOrders(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.destroyOrders(data)
+          .then(orders => {
+            return lib.Validator.validateFulfillmentProvider.destroyOrdersSuccess(orders)
+          })
+      })
   }
 
   /**
@@ -90,8 +126,14 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   getOrder(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.getOrder(data)
+    return lib.Validator.validateFulfillmentProvider.getOrder(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.getOrder(data)
+          .then(order => {
+            return lib.Validator.validateFulfillmentProvider.getOrderSuccess(order)
+          })
+      })
   }
 
   /**
@@ -101,8 +143,14 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   getOrders(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.getOrders(data)
+    return lib.Validator.validateFulfillmentProvider.getOrders(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.getOrders(data)
+          .then(orders => {
+            return lib.Validator.validateFulfillmentProvider.getOrderSuccess(orders)
+          })
+      })
   }
 
   /**
@@ -112,8 +160,14 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   holdOrder(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.holdOrder(data)
+    return lib.Validator.validateFulfillmentProvider.holdOrder(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.holdOrder(data)
+          .then(order => {
+            return lib.Validator.validateFulfillmentProvider.holdOrderSuccess(order)
+          })
+      })
   }
 
   /**
@@ -123,8 +177,14 @@ module.exports = class FulfillmentService extends Service {
    * @returns {Promise}
    */
   holdOrders(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.holdOrders(data)
+    return lib.Validator.validateFulfillmentProvider.holdOrders(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.holdOrders(data)
+          .then(orders => {
+            return lib.Validator.validateFulfillmentProvider.holdOrdersSuccess(orders)
+          })
+      })
   }
 
 }
