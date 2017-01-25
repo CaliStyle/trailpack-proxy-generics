@@ -5,6 +5,11 @@ module.exports = class FakeTaxProvider {
     this.options = options
   }
   getRate(data) {
-    return Promise.resolve({})
+    return Promise.resolve({
+      amount: 1000,
+      rate: 0.075,
+      title: 'Sales Tax',
+      tax_details: {}
+    })
   }
 }
