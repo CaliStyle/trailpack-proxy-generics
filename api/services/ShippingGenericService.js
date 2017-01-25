@@ -7,7 +7,7 @@ const lib = require('../../lib')
  * @module ShippingService
  * @description Shipping Provider Generic
  */
-module.exports = class ShippingService extends Service {
+module.exports = class ShippingGenericService extends Service {
   /**
    * _init Initializes the Adapter
    * @param {Object} adapter

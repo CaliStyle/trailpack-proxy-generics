@@ -6,7 +6,7 @@ const lib = require('../../lib')
  * @module DataStoreService
  * @description Data Store Generic
  */
-module.exports = class DataStoreService extends Service {
+module.exports = class DataStoreGenericService extends Service {
   /**
    * _init Initializes the Adapter
    * @param {Object} adapter

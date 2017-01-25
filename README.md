@@ -8,7 +8,7 @@
 ## Generic features that require adapters built with love from [Cali-Style](https://cali-style.com)
 
 Generics are common features that every web application needs but implements differently. The result of a Generic is a normalized way of handling these different services.
-For example: Email Provider, Payment Processors, Tax Provider, Shipping Provider, Fulfillment, whatever you need!
+For example: Email Provider, Payment Processors, Tax Provider, Shipping Provider, Fulfillment, Geolocation, whatever you need!
 
 Can you think of a generic we missed? Create a PR!
 
@@ -30,15 +30,35 @@ module.exports = {
 }
 ```
 
+```js
+// config/proxyGenerics.js
+module.exports = {
+  // ... any generic
+  payment_processor: {
+      adapter: require('<adpater>'),
+      options: {
+          whatever_key: '<what ever you need here>'
+      }
+  }
+}
+```
+
 ## Currently Supported Generics
 ### Email Provider (TODO)
 The Email Provider handles sending emails from different email providers eg. Mandrill, MailGun
 
 #### EmailGenericService.send
 #### EmailGenericService.sendTemplate
-#### Creating an Email Provider Plugin
+#### Creating an Email Provider Generic
 
-### Payment Processor (TODO)
+### Geolocation Provider (TODO)
+The Geolocation Provider handles resolving geography
+
+#### GeolocationGenericService.locate
+
+#### Creating a Geolocation Provider Generic
+
+### Payment Processor
 The Payment Processor handles payments from different merchant processors/terminals eg. Stripe, Authorize.net.
 
 #### PaymentGenericService.authorize
@@ -52,7 +72,7 @@ The Payment Processor handles payments from different merchant processors/termin
 
 #### Creating a Payment Processor Generic
 
-### Tax Provider (TODO)
+### Tax Provider
 The Tax Provider handles sales tax for items sold from different tax providers eg. TaxBundle
 
 #### TaxGenericService.getRate

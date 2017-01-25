@@ -38,6 +38,10 @@ module.exports = _.defaultsDeep({
       fulfillment_provider: {
         adapter: require('./fixtures/FakeFulfillment'),
         options: {}
+      },
+      geolocation_provider: {
+        adapter: require('./fixtures/FakeGeolocation'),
+        options: {}
       }
     }
   }

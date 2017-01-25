@@ -7,7 +7,7 @@ const lib = require('../../lib')
  * @module EmailService
  * @description Email Generic
  */
-module.exports = class EmailService extends Service {
+module.exports = class EmailGenericService extends Service {
   /**
    * _init Initializes the Adapter
    * @param {Object} adapter
