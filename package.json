@@ -22,7 +22,7 @@
     "trailjs"
   ],
   "dependencies": {
-    "joi": "^9.0.4",
+    "joi": "^10.2.0",
     "proxy-engine-errors": "^1.0.1",
     "trailpack": "v2-latest"
   },
