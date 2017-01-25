@@ -1,7 +1,7 @@
 'use strict'
 
 const Service = require('trails/service')
-// const lib = require('../../lib')
+const lib = require('../../lib')
 
 /**
  * @module ShippingService
@@ -25,8 +25,14 @@ module.exports = class ShippingService extends Service {
    * @returns {Promise}
    */
   validateAddress(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.validateAddress(data)
+    return lib.Validator.validateShippingProvider.validateAddress(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.validateAddress(data)
+          .then(address => {
+            return lib.Validator.validateShippingProvider.validateAddressSuccess(address)
+          })
+      })
   }
 
   /**
@@ -36,8 +42,14 @@ module.exports = class ShippingService extends Service {
    * @returns {Promise}
    */
   getRate(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.getRate(data)
+    return lib.Validator.validateShippingProvider.getRate(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.getRate(data)
+          .then(rate => {
+            return lib.Validator.validateShippingProvider.getRateSuccess(rate)
+          })
+      })
   }
   /**
    *
@@ -46,9 +58,13 @@ module.exports = class ShippingService extends Service {
    * @returns {Promise}
    */
   getRates(data, adapter){
-    adapter = this._init(adapter)
-    return adapter.getRates(data)
+    return lib.Validator.validateShippingProvider.getRates(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.getRates(data)
+          .then(rates => {
+            return lib.Validator.validateShippingProvider.getRatesSuccess(rates)
+          })
+      })
   }
-
 }
-
