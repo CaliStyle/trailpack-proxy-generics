@@ -5,10 +5,10 @@ module.exports = class FakeEmailProvider {
     this.options = options
   }
   send(data) {
-    return Promise.resolve({status: 'success'})
+    return Promise.resolve([])
   }
 
   sendTemplate(data) {
-    return Promise.resolve({status: 'success'})
+    return Promise.resolve([])
   }
 }
