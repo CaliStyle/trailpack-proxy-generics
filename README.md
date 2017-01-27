@@ -7,6 +7,8 @@
 
 ## Generic features that require adapters built with love from [Cali-Style](https://cali-style.com)
 
+Looking for [Proxy Engine?](https://github.com/calistyle/trailpack-proxy-engine)
+
 Generics are common features that every web application needs but implements differently. The result of a Generic is a normalized way of handling these different services.
 For example: Email Provider, Payment Processors, Tax Provider, Shipping Provider, Fulfillment, Geolocation, whatever you need!
 
@@ -43,39 +45,70 @@ module.exports = {
 }
 ```
 
+## Usage
+Many different modules in Proxy Engine will rely on a generic to complete a task. Generics are easy to create and use.
+
+### Validation
+Every Generic call is validated twice: 
+
+- When data is passed to the generic.
+- When there is a successful response from the generic.
+
+This allows for generics to stay consistent with their requests and responses.
+
 ## Currently Supported Generics
 ### Email Provider (TODO)
 The Email Provider handles sending emails from different email providers eg. Mandrill, MailGun
 
 #### EmailGenericService.send
+Sends an Email
+
 #### EmailGenericService.sendTemplate
+Sends an Email Template
+
 #### Creating an Email Provider Generic
+
+#### Supported Email Providers
+* [Mandrill](https://github.com/CaliStyle/proxy-generics-mandrill)
 
 ### Geolocation Provider (TODO)
 The Geolocation Provider handles resolving geography
 
 #### GeolocationGenericService.locate
+Resolves the geolocation of an address
 
 #### Creating a Geolocation Provider Generic
+
+#### Supported Geolocation Providers
 
 ### Payment Processor
 The Payment Processor handles payments from different merchant processors/terminals eg. Stripe, Authorize.net.
 
 #### PaymentGenericService.authorize
+Authorizes a purchase
+
 #### PaymentGenericService.capture
+Captures an authorized purchase
+
 #### PaymentGenericService.sale
+Authorizes and captures a purchase
+
 #### PaymentGenericService.void
+Voids an authorized purchase
+
 #### PaymentGenericService.refund
+Partially Refunds/Refunds a purchase
+
+#### Creating a Payment Processor Generic
 
 #### Supported Payment Processors
 * [Stripe](https://github.com/CaliStyle/proxy-generics-stripe)
-
-#### Creating a Payment Processor Generic
 
 ### Tax Provider
 The Tax Provider handles sales tax for items sold from different tax providers eg. TaxBundle
 
 #### TaxGenericService.getRate
+Gets the tax rate for a purchase.
 
 #### Creating a Tax Provider Generic
 
@@ -86,8 +119,10 @@ The Tax Provider handles sales tax for items sold from different tax providers e
 The Shipping Provider handles shipping rates from a location to a destination from different shipping providers eg. Shipstation, USPS, FedEx, UPS
 
 #### ShippingGenericService.getRate
+Gets a single carrier rate.
 
 #### ShippingGenericService.getRates
+Gets all carrier rates
 
 #### Creating a Shipping Provider Generic
 
@@ -100,15 +135,35 @@ The Shipping Provider handles shipping rates from a location to a destination fr
 ### Fulfillment Provider (TODO)
 The Fulfillment Provider handles fulfillment events from a location to a destination from different fulfillment providers eg. Shipstation
 
+#### FulfillmentGenericService.createOrder
+Creates an order in fulfillment
+
 #### FulfillmentGenericService.createOrders
+Creates multiple orders in fulfillment
+
+#### FulfillmentGenericService.updateOrder
+Updates an order in fulfillment
 
 #### FulfillmentGenericService.updateOrders
+Updates multiple orders in fulfillment
+
+#### FulfillmentGenericService.destroyOrder
+Destroys an order in fulfillment
 
 #### FulfillmentGenericService.destroyOrders
+Destroys multiple orders in fulfillment
+
+#### FulfillmentGenericService.getOrder
+Retrieves an order in fulfillment
 
 #### FulfillmentGenericService.getOrders
+Retrieves multiple orders in fulfillment
+
+#### FulfillmentGenericService.holdOrder
+Creates an order hold in fulfillment
 
 #### FulfillmentGenericService.holdOrders
+Creates multiple order holds in fulfillment
 
 #### Creating a Fulfillment Provider Generic
 
@@ -118,9 +173,20 @@ The Fulfillment Provider handles fulfillment events from a location to a destina
 
 ### Data Store Provider (TODO)
 The Data Store provider handles uploads and downloads to a remote data store eg. AWS, Gcloud
+
 #### DataStoreGenericService.upload
+Uploads a buffer to a data store
+
+#### DataStoreGenericService.uploadFile
+Uploads a file to a data store
+
+#### DataStoreGenericService.uploadFiles
+Uploads files to a data store
+
 #### Creating a Data Store Provider Plugin
 
+#### Supported Data Store Providers
+ * [Gcloud](https://github.com/CaliStyle/proxy-generics-glcoud)
 
 [npm-image]: https://img.shields.io/npm/v/trailpack-proxy-generics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/trailpack-proxy-generics

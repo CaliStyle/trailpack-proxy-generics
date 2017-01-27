@@ -31,7 +31,21 @@ describe('EmailGenericService', () => {
       })
   })
   it('should send template', (done) => {
-    EmailGenericService.sendTemplate({})
+    EmailGenericService.sendTemplate({
+      subject: 'Hello World',
+      to: [
+        {
+          email: 'example@example.com',
+          name: 'Test Receiver'
+        }
+      ],
+      from: {
+        email: 'example@example.com',
+        name: 'Test Sender'
+      },
+      template_name: 'welcome',
+      template_content: {}
+    })
       .then(email => {
         done()
       })
