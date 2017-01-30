@@ -71,15 +71,16 @@ Sends an Email Template
 #### Supported Email Providers
 * [Mandrill](https://github.com/CaliStyle/proxy-generics-mandrill)
 
-### Geolocation Provider (TODO)
+### Geolocation Provider
 The Geolocation Provider handles resolving geography
 
 #### GeolocationGenericService.locate
-Resolves the geolocation of an address
+Resolves the geolocation of an address, validates an address, normalizes an address.
 
 #### Creating a Geolocation Provider Generic
 
 #### Supported Geolocation Providers
+* [Google Maps](https://github.com/calistyle/proxy-generics-google-maps)
 
 ### Payment Processor
 The Payment Processor handles payments from different merchant processors/terminals eg. Stripe, Authorize.net.
