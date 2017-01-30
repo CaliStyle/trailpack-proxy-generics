@@ -57,7 +57,7 @@ Every Generic call is validated twice:
 This allows for generics to stay consistent with their requests and responses.
 
 ## Currently Supported Generics
-### Email Provider (TODO)
+### Email Provider
 The Email Provider handles sending emails from different email providers eg. Mandrill, MailGun
 
 #### EmailGenericService.send
@@ -171,7 +171,7 @@ Creates multiple order holds in fulfillment
 * [Shippo](https://github.com/CaliStyle/proxy-generics-shippo)
 * [Shipstation](https://github.com/CaliStyle/proxy-generics-shipstation)
 
-### Data Store Provider (TODO)
+### Data Store Provider
 The Data Store provider handles uploads and downloads to a remote data store eg. AWS, Gcloud
 
 #### DataStoreGenericService.upload
