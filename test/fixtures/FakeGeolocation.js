@@ -6,6 +6,9 @@ module.exports = class FakeGeolocationProvider {
   }
 
   locate(data) {
-    return Promise.resolve({})
+    return Promise.resolve({
+      latitude: 0.000000,
+      longitude: 0.000000
+    })
   }
 }

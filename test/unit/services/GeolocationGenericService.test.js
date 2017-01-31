@@ -9,7 +9,11 @@ describe('GeolocationGenericService', () => {
     GeolocationGenericService = global.app.services.GeolocationGenericService
   })
   it('should create an order', (done) => {
-    GeolocationGenericService.locate({})
+    GeolocationGenericService.locate({
+      city: 'Cupertino',
+      province_code: 'CA',
+      country_code: 'US'
+    })
       .then(response => {
         done()
       })
