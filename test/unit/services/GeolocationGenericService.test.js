@@ -8,7 +8,7 @@ describe('GeolocationGenericService', () => {
     assert(global.app.api.services['GeolocationGenericService'])
     GeolocationGenericService = global.app.services.GeolocationGenericService
   })
-  it('should create an order', (done) => {
+  it('should locate an address', (done) => {
     GeolocationGenericService.locate({
       city: 'Cupertino',
       province_code: 'CA',
