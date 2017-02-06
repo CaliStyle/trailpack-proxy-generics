@@ -5,14 +5,17 @@
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![Code Climate][codeclimate-image]][codeclimate-url]
 
-## Generic features that require adapters built with love from [Cali-Style](https://cali-style.com)
+## An adapter protocol for common functions, built with love from [Cali-Style](https://cali-style.com)
 
 Looking for [Proxy Engine?](https://github.com/calistyle/trailpack-proxy-engine)
 
-Generics are common features that every web application needs but implements differently. The result of a Generic is a normalized way of handling these different services.
-For example: Email Provider, Payment Processors, Tax Provider, Shipping Provider, Fulfillment, Geolocation, Image Manipulation, whatever you need!
+Generics are common features that web applications need but implement differently. The result of a Generic is a normalized way of handling these different services.
 
-Can you think of a generic we missed? Create a PR!
+A generic is a great way to implement 3rd parties. You can write your application to implement a single service but easily swap out the the 3rd party.
+
+Current Generics: Email Provider, Payment Processors, Tax Provider, Shipping Provider, Fulfillment, Geolocation, Image Manipulation, whatever you need!
+
+Can you think of a generic or method we missed? Create a PR!
 
 ## Install
 
@@ -37,7 +40,7 @@ module.exports = {
 module.exports = {
   // ... any generic
   payment_processor: {
-      adapter: require('<adpater>'),
+      adapter: require('<adapter>'),
       options: {
           whatever_key: '<what ever you need here>'
       }
