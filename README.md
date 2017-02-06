@@ -10,7 +10,7 @@
 Looking for [Proxy Engine?](https://github.com/calistyle/trailpack-proxy-engine)
 
 Generics are common features that every web application needs but implements differently. The result of a Generic is a normalized way of handling these different services.
-For example: Email Provider, Payment Processors, Tax Provider, Shipping Provider, Fulfillment, Geolocation, whatever you need!
+For example: Email Provider, Payment Processors, Tax Provider, Shipping Provider, Fulfillment, Geolocation, Image Manipulation, whatever you need!
 
 Can you think of a generic we missed? Create a PR!
 
@@ -188,6 +188,11 @@ Uploads files to a data store
 
 #### Supported Data Store Providers
  * [Gcloud](https://github.com/CaliStyle/proxy-generics-glcoud)
+
+### Image Provider
+Handles image manipulation
+
+#### Creating an Image Provider Plugin
 
 [npm-image]: https://img.shields.io/npm/v/trailpack-proxy-generics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/trailpack-proxy-generics
