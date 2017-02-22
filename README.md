@@ -107,6 +107,7 @@ Partially Refunds/Refunds a purchase
 
 #### Supported Payment Processors
 * [Stripe](https://github.com/CaliStyle/proxy-generics-stripe)
+* [Authorize.net](https://github.com/CaliStyle/proxy-generics-authorize-net)
 
 ### Tax Provider
 The Tax Provider handles sales tax for items sold from different tax providers eg. TaxBundle
