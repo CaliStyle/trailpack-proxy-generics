@@ -42,6 +42,10 @@ module.exports = _.defaultsDeep({
       geolocation_provider: {
         adapter: require('./fixtures/FakeGeolocation'),
         options: {}
+      },
+      render_service: {
+        adapter: require('./fixtures/FakeRender'),
+        options: {}
       }
     }
   }

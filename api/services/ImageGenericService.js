@@ -1,7 +1,7 @@
 'use strict'
 
 const Service = require('trails/service')
-
+// const lib = require('../../lib')
 /**
  * @module ImageGenericService
  * @description Image Generic Service

@@ -198,6 +198,14 @@ Handles image manipulation
 
 #### Creating an Image Provider Plugin
 
+### Render Service
+Handles rendering of html
+
+#### RenderGenericService.render
+Render a string into HTML
+
+#### Creating an Render Service Plugin
+
 [npm-image]: https://img.shields.io/npm/v/trailpack-proxy-generics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/trailpack-proxy-generics
 [ci-image]: https://img.shields.io/circleci/project/github/CaliStyle/trailpack-proxy-generics/master.svg
