@@ -13,7 +13,7 @@ Generics are common features that web applications need but implement differentl
 
 A generic is a great way to implement 3rd parties. You can write your application to implement a single service but easily swap out the the 3rd party.
 
-Current Generics: Email Provider, Payment Processors, Tax Provider, Shipping Provider, Fulfillment, Geolocation, Image Manipulation, whatever you need!
+Current Generics: Email Provider, Payment Processors, Tax Provider, Shipping Provider, Fulfillment, Geolocation, Image Manipulation, HTML rendering, whatever you need!
 
 Can you think of a generic or method we missed? Create a PR!
 
