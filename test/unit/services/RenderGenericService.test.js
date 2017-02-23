@@ -10,7 +10,8 @@ describe('RenderGenericService', () => {
   })
   it('should render', (done) => {
     RenderGenericService.render('# Look at me as markup!')
-      .then(html => {
+      .then(obj => {
+        assert.ok(obj.document)
         done()
       })
       .catch(err => {

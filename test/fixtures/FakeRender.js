@@ -5,6 +5,6 @@ module.exports = class FakeRenderService {
     this.options = options
   }
   render(data) {
-    return Promise.resolve(data)
+    return Promise.resolve({document: data})
   }
 }
