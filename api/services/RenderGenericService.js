@@ -21,15 +21,15 @@ module.exports = class RenderGenericService extends Service {
    *
    * @param {Object} data
    * @param {Object} adapter
-   * @returns {Promise}
+   * @returns {Promise<{document: string, meta:Object}>}
    */
   render(data, adapter){
     return lib.Validator.validateRenderService.render(data)
       .then(values => {
         adapter = this._init(adapter)
         return adapter.render(data)
-          .then(html => {
-            return lib.Validator.validateRenderService.renderSuccess(html)
+          .then(docObj => {
+            return lib.Validator.validateRenderService.renderSuccess(docObj)
           })
       })
   }

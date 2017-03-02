@@ -20,11 +20,11 @@ module.exports = {
       /**
        * List of events emitted by the configure lifecycle method
        */
-      emit: ['trailpack:proxygenerics:configured']
+      emit: ['trailpack:proxy-generics:configured']
     },
     initialize: {
       listen: [],
-      emit: ['trailpack:proxygenerics:initialized']
+      emit: ['trailpack:proxy-generics:initialized']
     }
   }
 }

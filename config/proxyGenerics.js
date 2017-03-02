@@ -27,5 +27,19 @@ module.exports = {
   data_store_provider: {
     adapter: null,
     options: {}
+  },
+  geolocation_provider: {
+    adapter: null,
+    options: {}
+  },
+  image_provider: {
+    adapter: null,
+    options: {}
+  },
+  render_service: {
+    adapter: null,
+    options: {}
   }
+
+
 }
