@@ -136,7 +136,6 @@ Gets all carrier rates
 * [Shipstation](https://github.com/CaliStyle/proxy-generics-shipstation)
 
 
-
 ### Fulfillment Provider (TODO)
 The Fulfillment Provider handles fulfillment events from a location to a destination from different fulfillment providers eg. Shipstation
 
@@ -199,12 +198,24 @@ Handles image manipulation
 #### Creating an Image Provider Plugin
 
 ### Render Service
-Handles rendering of html
+Handles rendering of html and Metadata
 
 #### RenderGenericService.render
-Render a string into HTML
+Render a markdown/html string into HTML and returns YAML metadata as object
+```js
+{
+    document: '<h1>Hello World</h1>'
+    meta: {
+      key: 'Look at Me!'
+    }
+}
+```
 
 #### Creating an Render Service Plugin
+
+#### Supported Render Services
+* [Render](https://github.com/CaliStyle/proxy-generics-render)
+
 
 [npm-image]: https://img.shields.io/npm/v/trailpack-proxy-generics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/trailpack-proxy-generics
