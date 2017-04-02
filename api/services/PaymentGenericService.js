@@ -99,5 +99,73 @@ module.exports = class PaymentGenericService extends Service {
           })
       })
   }
+
+  /**
+   *
+   * @param customer
+   * @param adapter
+   * @returns {*|Promise.<TResult>}
+   */
+  createCustomer(customer, adapter){
+    return lib.Validator.validatePaymentProvider.createCustomer(customer)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.createCustomer(customer)
+          .then(customer => {
+            return lib.Validator.validatePaymentProvider.createCustomerSuccess(customer)
+          })
+      })
+  }
+
+  /**
+   *
+   * @param customer
+   * @param adapter
+   * @returns {*|Promise.<TResult>}
+   */
+  updateCustomer(customer, adapter){
+    return lib.Validator.validatePaymentProvider.updateCustomer(customer)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.updateCustomer(customer)
+          .then(customer => {
+            return lib.Validator.validatePaymentProvider.updateCustomerSuccess(customer)
+          })
+      })
+  }
+
+  /**
+   *
+   * @param customer
+   * @param adapter
+   * @returns {*|Promise.<TResult>}
+   */
+  createCustomerSource(source, adapter){
+    return lib.Validator.validatePaymentProvider.createCustomerSource(source)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.createCustomerSource(source)
+          .then(source => {
+            return lib.Validator.validatePaymentProvider.createCustomerSourceSuccess(source)
+          })
+      })
+  }
+
+  /**
+   *
+   * @param source
+   * @param adapter
+   * @returns {*|Promise.<TResult>}
+   */
+  updateCustomerSource(source, adapter){
+    return lib.Validator.validatePaymentProvider.updateCustomerSource(source)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.updateCustomerSource(source)
+          .then(source => {
+            return lib.Validator.validatePaymentProvider.updateCustomerSourceSuccess(source)
+          })
+      })
+  }
 }
 

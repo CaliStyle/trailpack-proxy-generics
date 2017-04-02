@@ -74,4 +74,52 @@ describe('PaymentGenericService', () => {
         done(err)
       })
   })
+  it('should create customer', (done) => {
+    PaymentGenericService.createCustomer({
+      email: 'scott@awesome.com'
+    })
+      .then(customer => {
+
+        done()
+      })
+      .catch(err => {
+        done(err)
+      })
+  })
+  it('should update customer', (done) => {
+    PaymentGenericService.updateCustomer({
+      email: 'scott@awesome.com'
+    })
+      .then(customer => {
+
+        done()
+      })
+      .catch(err => {
+        done(err)
+      })
+  })
+  it('should create customer source', (done) => {
+    PaymentGenericService.createCustomerSource({
+      id: 1
+    })
+      .then(source => {
+
+        done()
+      })
+      .catch(err => {
+        done(err)
+      })
+  })
+  it('should update customer source', (done) => {
+    PaymentGenericService.updateCustomerSource({
+      id: 1
+    })
+      .then(source => {
+
+        done()
+      })
+      .catch(err => {
+        done(err)
+      })
+  })
 })
