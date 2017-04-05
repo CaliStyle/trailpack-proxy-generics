@@ -88,7 +88,8 @@ describe('PaymentGenericService', () => {
   })
   it('should update customer', (done) => {
     PaymentGenericService.updateCustomer({
-      email: 'scott@awesome.com'
+      email: 'scott@awesome.com',
+      foreign_id: 1
     })
       .then(customer => {
 
@@ -100,7 +101,8 @@ describe('PaymentGenericService', () => {
   })
   it('should create customer source', (done) => {
     PaymentGenericService.createCustomerSource({
-      id: 1
+      account_foreign_id: 1,
+      token: 1
     })
       .then(source => {
 
@@ -112,7 +114,8 @@ describe('PaymentGenericService', () => {
   })
   it('should update customer source', (done) => {
     PaymentGenericService.updateCustomerSource({
-      id: 1
+      account_foreign_id: 1,
+      foreign_id: 1
     })
       .then(source => {
 
