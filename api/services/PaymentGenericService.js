@@ -123,6 +123,23 @@ module.exports = class PaymentGenericService extends Service {
    * @param adapter
    * @returns {*|Promise.<TResult>}
    */
+  findCustomer(customer, adapter){
+    return lib.Validator.validatePaymentProvider.findCustomer(customer)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.findCustomer(customer)
+          .then(customer => {
+            return lib.Validator.validatePaymentProvider.findCustomerSuccess(customer)
+          })
+      })
+  }
+
+  /**
+   *
+   * @param customer
+   * @param adapter
+   * @returns {*|Promise.<TResult>}
+   */
   updateCustomer(customer, adapter){
     return lib.Validator.validatePaymentProvider.updateCustomer(customer)
       .then(values => {
@@ -147,6 +164,22 @@ module.exports = class PaymentGenericService extends Service {
         return adapter.createCustomerSource(source)
           .then(source => {
             return lib.Validator.validatePaymentProvider.createCustomerSourceSuccess(source)
+          })
+      })
+  }
+  /**
+   *
+   * @param customer
+   * @param adapter
+   * @returns {*|Promise.<TResult>}
+   */
+  findCustomerSource(source, adapter){
+    return lib.Validator.validatePaymentProvider.findCustomerSource(source)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.findCustomerSource(source)
+          .then(source => {
+            return lib.Validator.validatePaymentProvider.findCustomerSourceSuccess(source)
           })
       })
   }
