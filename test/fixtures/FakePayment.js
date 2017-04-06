@@ -52,7 +52,7 @@ module.exports = class FakePaymentProcessor {
   }
   createCustomer(customer) {
     const res = {
-      gateway: 'default',
+      gateway: 'payment_processor',
       foreign_key: 'customer',
       foreign_id: customer.id,
       data: customer
@@ -61,16 +61,29 @@ module.exports = class FakePaymentProcessor {
   }
   createCustomerSource(source) {
     const res = {
-      gateway: 'default',
+      gateway: 'payment_processor',
+      account_foreign_key: source.account_foreign_key,
+      account_foreign_id: source.account_foreign_id,
       foreign_key: 'customer',
       foreign_id: source.id,
       data: source
     }
     return Promise.resolve(res)
   }
+  findCustomer(customer) {
+    const res = {
+      gateway: 'payment_processor',
+      foreign_key: 'customer',
+      foreign_id: customer.id,
+      data: customer
+    }
+    return Promise.resolve(res)
+  }
   findCustomerSource(source) {
     const res = {
-      gateway: 'default',
+      gateway: 'payment_processor',
+      account_foreign_key: source.account_foreign_key,
+      account_foreign_id: source.account_foreign_id,
       foreign_key: 'customer',
       foreign_id: source.id,
       data: source
@@ -79,16 +92,7 @@ module.exports = class FakePaymentProcessor {
   }
   updateCustomer(customer) {
     const res = {
-      gateway: 'default',
-      foreign_key: 'customer',
-      foreign_id: customer.id,
-      data: customer
-    }
-    return Promise.resolve(res)
-  }
-  findCustomer(customer) {
-    const res = {
-      gateway: 'default',
+      gateway: 'payment_processor',
       foreign_key: 'customer',
       foreign_id: customer.id,
       data: customer
@@ -97,9 +101,11 @@ module.exports = class FakePaymentProcessor {
   }
   updateCustomerSource(source) {
     const res = {
-      gateway: 'default',
-      foreign_key: 'customer',
-      foreign_id: source.id,
+      gateway: 'payment_processor',
+      account_foreign_key: source.account_foreign_key,
+      account_foreign_id: source.account_foreign_id,
+      foreign_key: 'source',
+      foreign_id: source.foreign_id,
       data: source
     }
     return Promise.resolve(res)
