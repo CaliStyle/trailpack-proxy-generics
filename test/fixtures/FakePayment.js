@@ -67,7 +67,7 @@ module.exports = class FakePaymentProcessor {
       account_foreign_id: source.account_foreign_id,
       foreign_key: 'customer',
       foreign_id: source.id,
-      data: source
+      payment_details: source
     }
     return Promise.resolve(res)
   }
@@ -87,7 +87,7 @@ module.exports = class FakePaymentProcessor {
       account_foreign_id: source.account_foreign_id,
       foreign_key: 'customer',
       foreign_id: 'source_' + shortid.generate(),
-      data: source
+      payment_details: source
     }
     return Promise.resolve(res)
   }
@@ -107,7 +107,7 @@ module.exports = class FakePaymentProcessor {
       account_foreign_id: source.account_foreign_id,
       foreign_key: 'source',
       foreign_id: source.foreign_id,
-      data: source
+      payment_details: source
     }
     return Promise.resolve(res)
   }
