@@ -1,4 +1,5 @@
 'use strict'
+const shortid = require('shortid')
 const _ = require('lodash')
 module.exports = class FakePaymentProcessor {
   constructor(options) {
@@ -85,7 +86,7 @@ module.exports = class FakePaymentProcessor {
       account_foreign_key: source.account_foreign_key,
       account_foreign_id: source.account_foreign_id,
       foreign_key: 'customer',
-      foreign_id: source.id,
+      foreign_id: 'source_' + shortid.generate(),
       data: source
     }
     return Promise.resolve(res)
