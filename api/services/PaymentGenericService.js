@@ -157,6 +157,23 @@ module.exports = class PaymentGenericService extends Service {
    * @param adapter
    * @returns {*|Promise.<TResult>}
    */
+  getCustomerSources(customer, adapter){
+    return lib.Validator.validatePaymentProvider.getCustomerSources(customer)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.getCustomerSources(customer)
+          .then(customer => {
+            return lib.Validator.validatePaymentProvider.getCustomerSourcesSuccess(customer)
+          })
+      })
+  }
+
+  /**
+   *
+   * @param customer
+   * @param adapter
+   * @returns {*|Promise.<TResult>}
+   */
   createCustomerSource(source, adapter){
     return lib.Validator.validatePaymentProvider.createCustomerSource(source)
       .then(values => {

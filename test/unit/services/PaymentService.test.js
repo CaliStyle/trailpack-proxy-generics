@@ -3,7 +3,7 @@
 const assert = require('assert')
 
 describe('PaymentGenericService', () => {
-  let PaymentGenericService
+  let PaymentGenericService, customerObj
   it('should exist', () => {
     assert(global.app.api.services['PaymentGenericService'])
     PaymentGenericService = global.app.services.PaymentGenericService
@@ -79,6 +79,16 @@ describe('PaymentGenericService', () => {
       email: 'scott@awesome.com'
     })
       .then(customer => {
+        customerObj = customer
+        done()
+      })
+      .catch(err => {
+        done(err)
+      })
+  })
+  it('should get customer sources', (done) => {
+    PaymentGenericService.getCustomerSources(customerObj)
+      .then(sources => {
 
         done()
       })
