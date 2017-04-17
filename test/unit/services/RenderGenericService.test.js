@@ -18,4 +18,10 @@ describe('RenderGenericService', () => {
         done(err)
       })
   })
+
+  it('should render sync', (done) => {
+    const doc = RenderGenericService.renderSync('# Look at me as markup!')
+    assert.ok(doc)
+    done()
+  })
 })

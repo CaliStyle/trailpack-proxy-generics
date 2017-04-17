@@ -7,4 +7,7 @@ module.exports = class FakeRenderService {
   render(data) {
     return Promise.resolve({document: data})
   }
+  renderSync(data) {
+    return { document: data }
+  }
 }

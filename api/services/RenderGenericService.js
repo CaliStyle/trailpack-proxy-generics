@@ -33,4 +33,8 @@ module.exports = class RenderGenericService extends Service {
           })
       })
   }
+  renderSync(data, adapter){
+    adapter = this._init(adapter)
+    return adapter.renderSync(data)
+  }
 }
