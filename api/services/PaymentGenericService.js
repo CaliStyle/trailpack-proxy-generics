@@ -217,5 +217,22 @@ module.exports = class PaymentGenericService extends Service {
           })
       })
   }
+
+  /**
+   *
+   * @param source
+   * @param adapter
+   * @returns {*|Promise.<TResult>}
+   */
+  removeCustomerSource(source, adapter){
+    return lib.Validator.validatePaymentProvider.removeCustomerSource(source)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.removeCustomerSource(source)
+          .then(source => {
+            return lib.Validator.validatePaymentProvider.removeCustomerSourceSuccess(source)
+          })
+      })
+  }
 }
 

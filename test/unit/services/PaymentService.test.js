@@ -135,4 +135,17 @@ describe('PaymentGenericService', () => {
         done(err)
       })
   })
+  it('should remove customer source', (done) => {
+    PaymentGenericService.removeCustomerSource({
+      account_foreign_id: 1,
+      foreign_id: 1
+    })
+      .then(source => {
+
+        done()
+      })
+      .catch(err => {
+        done(err)
+      })
+  })
 })
