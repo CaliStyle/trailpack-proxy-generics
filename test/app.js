@@ -11,6 +11,7 @@ module.exports = _.defaultsDeep({
   config: {
     main: {
       packs: [
+        require('trailpack-router'),
         require('../')
       ]
     },

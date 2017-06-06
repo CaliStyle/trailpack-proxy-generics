@@ -9,7 +9,7 @@ module.exports = class ProxyGenericsTrailpack extends Trailpack {
   /**
    * Validates Configs
    */
-  validate (app) {
+  validate () {
     if (!this.app.config.proxyGenerics) {
       return Promise.reject(new Error('No configuration found at config.proxyGenerics!'))
     }
@@ -23,7 +23,10 @@ module.exports = class ProxyGenericsTrailpack extends Trailpack {
    * TODO document method
    */
   configure () {
-
+    return Promise.all([
+      lib.ProxyGenerics.loadGenericApis(this.app),
+      lib.ProxyGenerics.addRoutes(this.app)
+    ])
   }
 
   /**

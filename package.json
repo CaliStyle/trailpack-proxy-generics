@@ -1,6 +1,6 @@
 {
   "name": "trailpack-proxy-generics",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generics - Trailpack for Proxy Engine",
   "homepage": "https://cali-style.com",
   "author": {
@@ -25,7 +25,9 @@
   "dependencies": {
     "joi": "^10.2.2",
     "proxy-engine-errors": "^1.0.1",
-    "trailpack": "^2.0.0"
+    "trailpack": "^2.0.0",
+    "trailpack-proxy-engine": "^1.0.2",
+    "trailpack-router": "^2.1.0"
   },
   "devDependencies": {
     "eslint": "^3.0.0",
