@@ -13,6 +13,8 @@ Generics are common features that web applications need but implement differentl
 
 A generic is a great way to implement 3rd parties. You can write your application to implement a single service but easily swap out the the 3rd party.
 
+Generics can add their own Models, Controllers, Services, and Policies so they can support things like vendor specific webhooks or extend functionality.
+
 Current Generics: Email Provider, Payment Processors, Tax Provider, Shipping Provider, Fulfillment, Geolocation, Image Manipulation, HTML rendering, whatever you need!
 
 Can you think of a generic or method we missed? Create a PR!
@@ -43,7 +45,8 @@ module.exports = {
       adapter: require('<adapter>'),
       options: {
           whatever_key: '<what ever you need here>'
-      }
+      },
+      api: require('<adapter>/api')
   }
 }
 ```
@@ -103,7 +106,32 @@ Voids an authorized purchase
 #### PaymentGenericService.refund
 Partially Refunds/Refunds a purchase
 
+#### PaymentGenericService.createCustomer
+Create a Customer Account
+
+#### PaymentGenericService.updateCustomer
+Update a Customer Account
+
+#### PaymentGenericService.findCustomer
+Find a Created Customer Account
+
+#### PaymentGenericService.getCustomerSources
+Get Customer Sources (Payment Methods)
+
+#### PaymentGenericService.createCustomerSource
+Create Customer Source (Payment Methods)
+
+#### PaymentGenericService.updateCustomerSource
+Update Customer Source (Payment Methods)
+
+#### PaymentGenericService.findCustomerSource
+Find a Customer Source (Payment Methods)
+
+#### PaymentGenericService.removeCustomerSource
+Remove a Customer Source (Payment Methods)
+
 #### Creating a Payment Processor Generic
+TODO EXAMPLE
 
 #### Supported Payment Processors
 * [Stripe](https://github.com/CaliStyle/proxy-generics-stripe)
@@ -113,9 +141,10 @@ Partially Refunds/Refunds a purchase
 The Tax Provider handles sales tax for items sold from different tax providers eg. TaxBundle
 
 #### TaxGenericService.getRate
-Gets the tax rate for a purchase.
+Gets the tax rate for a purchase transaction.
 
 #### Creating a Tax Provider Generic
+TODO EXAMPLE
 
 #### Supported Tax Providers
 * [Taxjar](https://github.com/CaliStyle/proxy-generics-taxjar)
@@ -130,6 +159,7 @@ Gets a single carrier rate.
 Gets all carrier rates
 
 #### Creating a Shipping Provider Generic
+TODO EXAMPLE
 
 #### Supported Shipping Providers
 * [Shippo](https://github.com/CaliStyle/proxy-generics-shippo)
@@ -170,6 +200,7 @@ Creates an order hold in fulfillment
 Creates multiple order holds in fulfillment
 
 #### Creating a Fulfillment Provider Generic
+TODO EXAMPLE
 
 #### Supported Fulfillment Providers
 * [Shippo](https://github.com/CaliStyle/proxy-generics-shippo)
@@ -188,6 +219,7 @@ Uploads a file to a data store
 Uploads files to a data store
 
 #### Creating a Data Store Provider Plugin
+TODO EXAMPLE
 
 #### Supported Data Store Providers
  * [Gcloud](https://github.com/CaliStyle/proxy-generics-glcoud)
@@ -196,6 +228,7 @@ Uploads files to a data store
 Handles image manipulation
 
 #### Creating an Image Provider Plugin
+TODO EXAMPLE
 
 ### Render Service
 Handles rendering of html and Metadata
@@ -210,8 +243,11 @@ Render a markdown/html string into HTML and returns YAML metadata as object
     }
 }
 ```
+#### RenderGenericService.renderSync
+Renders markdown/html string synchronously.
 
 #### Creating an Render Service Plugin
+TODO EXAMPLE
 
 #### Supported Render Services
 * [Render](https://github.com/CaliStyle/proxy-generics-render)
