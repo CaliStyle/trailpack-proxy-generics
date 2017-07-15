@@ -40,6 +40,4 @@ module.exports = {
     adapter: null,
     options: {}
   }
-
-
 }

@@ -20,20 +20,13 @@ module.exports = class ProxyGenericsTrailpack extends Trailpack {
   }
 
   /**
-   * TODO document method
+   * Adds generics' APIs to trails api, Adds generics' routes to app.routes
    */
   configure () {
     return Promise.all([
       lib.ProxyGenerics.loadGenericApis(this.app),
       lib.ProxyGenerics.addRoutes(this.app)
     ])
-  }
-
-  /**
-   * TODO document method
-   */
-  initialize () {
-
   }
 
   constructor (app) {
