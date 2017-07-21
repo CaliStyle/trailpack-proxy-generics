@@ -25,6 +25,7 @@ module.exports = class ProxyGenericsTrailpack extends Trailpack {
   configure () {
 
     this.app.api.emails = this.app.api.emails || {}
+    this.app.api.templates = this.app.api.templates || {}
 
     return Promise.all([
       lib.ProxyGenerics.configure(this.app),
