@@ -43,4 +43,4 @@ module.exports = class ProxyGenericsTrailpack extends Trailpack {
 }
 
 module.exports.Email = lib.Email
-
+module.exports.Template = lib.Template
