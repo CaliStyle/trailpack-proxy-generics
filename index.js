@@ -23,9 +23,7 @@ module.exports = class ProxyGenericsTrailpack extends Trailpack {
    * Adds generics' APIs to trails api, Adds generics' routes to app.routes
    */
   configure () {
-
-    this.app.api.emails = this.app.api.emails || {}
-    this.app.api.templates = this.app.api.templates || {}
+    this.app.api.generics = this.app.api.generics || {}
 
     return Promise.all([
       lib.ProxyGenerics.configure(this.app),
@@ -43,5 +41,4 @@ module.exports = class ProxyGenericsTrailpack extends Trailpack {
   }
 }
 
-module.exports.Email = lib.Email
-module.exports.Template = lib.Template
+module.exports.Generic = lib.Generic
