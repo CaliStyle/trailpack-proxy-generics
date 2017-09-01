@@ -12,7 +12,7 @@ describe('PaymentGenericService', () => {
     PaymentGenericService.authorize({
       amount: 100,
       payment_details: {
-        token: '123'
+        gateway_token: '123'
       }
     })
       .then(transaction => {
@@ -39,7 +39,7 @@ describe('PaymentGenericService', () => {
     PaymentGenericService.sale({
       amount: 100,
       payment_details: {
-        token: '123'
+        gateway_token: '123'
       }
     })
       .then(transaction => {
@@ -112,7 +112,7 @@ describe('PaymentGenericService', () => {
   it('should create customer source', (done) => {
     PaymentGenericService.createCustomerSource({
       account_foreign_id: 1,
-      token: 1
+      gateway_token: 1
     })
       .then(source => {
 
