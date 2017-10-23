@@ -62,6 +62,9 @@ Every Generic call is validated twice:
 
 This allows for generics to stay consistent with their requests and responses.
 
+NOTE:
+If a an instance of a model is passed to the generic, then the generic must mutate it return the same instance.
+
 ## Currently Supported Generics
 ### Email Provider
 The Email Provider handles sending emails from different email providers eg. Mandrill, MailGun
@@ -78,12 +81,16 @@ Sends an Email Template
 * [Mandrill](https://github.com/CaliStyle/proxy-generics-mandrill)
 
 ### Geolocation Provider
-The Geolocation Provider handles resolving geography
+The Geolocation Provider handles resolving geographical locations.
 
 #### GeolocationGenericService.locate
 Resolves the geolocation of an address, validates an address, normalizes an address.
 
 #### Creating a Geolocation Provider Generic
+
+```
+TODO
+```
 
 #### Supported Geolocation Providers
 * [Google Maps](https://github.com/calistyle/proxy-generics-google-maps)
@@ -92,19 +99,19 @@ Resolves the geolocation of an address, validates an address, normalizes an addr
 The Payment Processor handles payments from different merchant processors/terminals eg. Stripe, Authorize.net.
 
 #### PaymentGenericService.authorize
-Authorizes a purchase
+Authorizes a purchase transaction
 
 #### PaymentGenericService.capture
-Captures an authorized purchase
+Captures an authorized purchase transaction
 
 #### PaymentGenericService.sale
-Authorizes and captures a purchase
+Authorizes and captures a purchase transaction
 
 #### PaymentGenericService.void
-Voids an authorized purchase
+Voids an authorized purchase transaction
 
 #### PaymentGenericService.refund
-Partially Refunds/Refunds a purchase
+Partially Refunds/Refunds a purchase transaction
 
 #### PaymentGenericService.createCustomer
 Create a Customer Account
@@ -144,7 +151,9 @@ The Tax Provider handles sales tax for items sold from different tax providers e
 Gets the tax rate for a purchase transaction.
 
 #### Creating a Tax Provider Generic
+```
 TODO EXAMPLE
+```
 
 #### Supported Tax Providers
 * [Taxjar](https://github.com/CaliStyle/proxy-generics-taxjar)
@@ -159,15 +168,16 @@ Gets a single carrier rate.
 Gets all carrier rates
 
 #### Creating a Shipping Provider Generic
+```
 TODO EXAMPLE
+```
 
 #### Supported Shipping Providers
 * [Shippo](https://github.com/CaliStyle/proxy-generics-shippo)
 * [Shipstation](https://github.com/CaliStyle/proxy-generics-shipstation)
 
-
 ### Fulfillment Provider (TODO)
-The Fulfillment Provider handles fulfillment events from a location to a destination from different fulfillment providers eg. Shipstation
+The Fulfillment Provider handles fulfillment events from a location to a destination from different fulfillment providers eg. Shipstation, Amazon, Custom
 
 #### FulfillmentGenericService.createOrder
 Creates an order in fulfillment
@@ -200,14 +210,16 @@ Creates an order hold in fulfillment
 Creates multiple order holds in fulfillment
 
 #### Creating a Fulfillment Provider Generic
+```
 TODO EXAMPLE
+```
 
 #### Supported Fulfillment Providers
 * [Shippo](https://github.com/CaliStyle/proxy-generics-shippo)
 * [Shipstation](https://github.com/CaliStyle/proxy-generics-shipstation)
 
 ### Data Store Provider
-The Data Store provider handles uploads and downloads to a remote data store eg. AWS, Gcloud
+The Data Store provider handles uploads and downloads to a remote data store eg. AWS, gCloud, and some permissions.
 
 #### DataStoreGenericService.upload
 Uploads a buffer to a data store
@@ -219,7 +231,9 @@ Uploads a file to a data store
 Uploads files to a data store
 
 #### Creating a Data Store Provider Plugin
+```
 TODO EXAMPLE
+```
 
 #### Supported Data Store Providers
  * [Gcloud](https://github.com/CaliStyle/proxy-generics-glcoud)
@@ -228,7 +242,9 @@ TODO EXAMPLE
 Handles image manipulation
 
 #### Creating an Image Provider Plugin
+```
 TODO EXAMPLE
+```
 
 ### Render Service
 Handles rendering of html and Metadata
@@ -243,11 +259,16 @@ Render a markdown/html string into HTML and returns YAML metadata as object
     }
 }
 ```
+#### RenderGenericService.render
+Renders markdown/html string asynchronously.
+
 #### RenderGenericService.renderSync
 Renders markdown/html string synchronously.
 
 #### Creating an Render Service Plugin
+```
 TODO EXAMPLE
+```
 
 #### Supported Render Services
 * [Render](https://github.com/CaliStyle/proxy-generics-render)
