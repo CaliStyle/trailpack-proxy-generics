@@ -34,4 +34,20 @@ module.exports = class TaxGenericService extends Service {
           })
       })
   }
+  /**
+   *
+   * @param {Object} data
+   * @param {Object} adapter
+   * @returns {Promise}
+   */
+  taxForOrder(data, adapter){
+    return lib.Validator.validateTaxProvider.taxForOrder(data)
+      .then(values => {
+        adapter = this._init(adapter)
+        return adapter.taxForOrder(data)
+          .then(rate => {
+            return lib.Validator.validateTaxProvider.taxForOrderSuccess(rate)
+          })
+      })
+  }
 }
